@@ -3,93 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>House Cleaning Price Calculator (From Your Own Costs) | Free</title>
-<meta name="description" content="Free house cleaning price calculator: work out a cleaning quote from your own wage, supplies, overhead, travel and target margin, not from someone else's price list. Runs in your browser.">
-<link rel="canonical" href="https://megatronjeremy.github.io/cleaning-price-calculator/">
-<style>
-body{font-family:system-ui,sans-serif;max-width:760px;margin:0 auto;padding:1rem;line-height:1.55;color:#1c2430}
-fieldset{border:1px solid #c9d6d6;border-radius:8px;margin:1rem 0;padding:.4rem 1rem 1rem}
-legend{font-weight:700;color:#0F6E6E;padding:0 .3rem}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:0 1rem}
-label{display:block;margin:.7rem 0 .2rem;font-weight:600;font-size:.95rem}
-input,select{width:100%;padding:.5rem;font-size:1rem;box-sizing:border-box;border:1px solid #9aa5b1;border-radius:6px}
-.result{background:#e9f6f4;border:1px solid #9fd3cb;border-radius:8px;padding:1rem;margin:1.2rem 0}
-.big{font-size:2rem;font-weight:700;color:#0F6E6E}
-.warn{color:#9C0006;font-weight:700}
-small,.note{color:#566}
-img{max-width:100%;height:auto;border:1px solid #ddd;border-radius:6px}
-</style>
+<title>Moved: House Cleaning Price Calculator</title>
+<link rel="canonical" href="https://megatronjeremy.github.io/house-cleaning-price-calculator/">
+<meta http-equiv="refresh" content="0; url=https://megatronjeremy.github.io/house-cleaning-price-calculator/?utm_source=old_calc">
+<meta name="robots" content="noindex">
+<script>
+var q = location.search ? location.search + "&utm_source=old_calc" : "?utm_source=old_calc";
+location.replace("https://megatronjeremy.github.io/house-cleaning-price-calculator/" + q + location.hash);
+</script>
 </head>
 <body>
-<h1>House Cleaning Price Calculator</h1>
-<p>Most "how much to charge" guides give you a market range. This calculator works the other way: it starts from <strong>your</strong> costs (pay, supplies, overhead, travel) and your target margin, then gives you a quote for one home and the price below which you would lose money.</p>
-
-<fieldset><legend>1. Your costs</legend><div class="grid">
-<div><label for="pay">Pay per labour hour ($)</label><input id="pay" type="number" min="0" step="0.5" value="22"></div>
-<div><label for="burden">Payroll costs on top of pay (%) <small>your estimate</small></label><input id="burden" type="number" min="0" max="100" value="12"></div>
-<div><label for="sup">Supplies per labour hour ($)</label><input id="sup" type="number" min="0" step="0.1" value="2.5"></div>
-<div><label for="ovh">Monthly overhead ($) <small>insurance, software, phone, ads</small></label><input id="ovh" type="number" min="0" value="600"></div>
-<div><label for="hrs">Labour hours you sell per month</label><input id="hrs" type="number" min="1" value="160"></div>
-<div><label for="mile">Vehicle cost per mile ($) <small>your estimate</small></label><input id="mile" type="number" min="0" step="0.05" value="0.70"></div>
-<div><label for="margin">Target profit margin (%)</label><input id="margin" type="number" min="0" max="90" value="20"></div>
-</div></fieldset>
-
-<fieldset><legend>2. The job</legend><div class="grid">
-<div><label for="type">Job type</label><select id="type">
-<option value="500|0.25">Standard (sample: 500 sq ft per labour hr)</option>
-<option value="300|0.5">Deep (sample: 300 sq ft per labour hr)</option>
-<option value="250|0.6">Move-in/out (sample: 250 sq ft per labour hr)</option>
-</select></div>
-<div><label for="sqft">Square feet</label><input id="sqft" type="number" min="0" value="2000"></div>
-<div><label for="baths">Bathrooms</label><input id="baths" type="number" min="0" value="2"></div>
-<div><label for="addon">Add-on hours <small>oven, fridge, windows</small></label><input id="addon" type="number" min="0" step="0.25" value="0"></div>
-<div><label for="team">Cleaners on the team</label><input id="team" type="number" min="1" value="2"></div>
-<div><label for="miles">Miles round trip</label><input id="miles" type="number" min="0" value="12"></div>
-<div><label for="disc">Recurring-client discount (%)</label><input id="disc" type="number" min="0" max="90" value="0"></div>
-</div></fieldset>
-
-<div class="result" aria-live="polite">
-  <div>Suggested quote (rounded up to $5):</div>
-  <div class="big" id="price">&ndash;</div>
-  <div id="detail"></div>
-  <div id="flag"></div>
-</div>
-
-<p class="note">An estimate for planning, not tax, legal or financial advice. The cleaning speeds in the job-type list are sample assumptions, not industry standards: time a few of your own cleans and adjust. Everything runs in your browser; nothing is sent or saved.</p>
-
-<h2>How the maths works</h2>
-<p>Cost per labour hour = pay &times; (1 + payroll %) + supplies per hour + monthly overhead &divide; labour hours sold. Labour hours for the job = sq ft &divide; sq ft per labour hour + bathrooms &times; extra hours per bathroom (sample: 0.25 standard, 0.5 deep, 0.6 move-out) + add-on hours. Break-even = labour hours &times; cost per labour hour + miles &times; cost per mile. Quote = (labour hours &times; cost per labour hour &divide; (1 &minus; margin) + travel) &times; (1 &minus; discount), rounded up to the next $5.</p>
-<p>Example with the numbers above: cost per labour hour is $24.64 + $2.50 + $3.75 = $30.89. A 2,000 sq ft standard clean with 2 bathrooms is 4.5 labour hours (2.25 hours on site for a team of 2). Break-even is $147.41 and the quote is $185.</p>
-<p>Labour hours are person-hours: two cleaners working 2 hours is 4 labour hours. Recurring discounts come straight out of your margin: at a 20% target margin, a 15% weekly discount leaves only about 6% (before rounding and travel).</p>
-
-<p><small>Made by an AI-assisted template studio. Page content and calculator were written with AI assistance and reviewed before publishing.</small></p>
-
-<script>
-(function(){
-  var ids=["pay","burden","sup","ovh","hrs","mile","margin","type","sqft","baths","addon","team","miles","disc"],el={};
-  ids.forEach(function(i){el[i]=document.getElementById(i);el[i].addEventListener("input",calc);el[i].addEventListener("change",calc);});
-  function v(i){var n=parseFloat(el[i].value);return isNaN(n)||n<0?0:n;}
-  function money(n){return "$"+n.toLocaleString(undefined,{maximumFractionDigits:2,minimumFractionDigits:2});}
-  function calc(){
-    var t=el.type.value.split("|"),speed=parseFloat(t[0]),perBath=parseFloat(t[1]);
-    var hrs=Math.max(v("hrs"),1),margin=Math.min(v("margin"),90)/100,disc=Math.min(v("disc"),90)/100;
-    var cost=v("pay")*(1+v("burden")/100)+v("sup")+v("ovh")/hrs;
-    var labour=v("sqft")/speed+v("baths")*perBath+v("addon");
-    var travel=v("miles")*v("mile");
-    var breakeven=labour*cost+travel;
-    var raw=(labour*cost/(1-margin)+travel)*(1-disc);
-    var price=Math.ceil(raw/5-1e-9)*5;
-    var team=Math.max(Math.floor(v("team")),1);
-    var m=price>0?(price-breakeven)/price:0;
-    document.getElementById("price").textContent=price>0?money(price):"–";
-    document.getElementById("detail").textContent="Labour hours: "+labour.toFixed(2)+" ("+(labour/team).toFixed(2)+" hours on site with "+team+" cleaner"+(team>1?"s":"")+"). Cost per labour hour: "+money(cost)+". Break-even price: "+money(breakeven)+". Margin at this quote: "+Math.round(m*100)+"%"+(v("sqft")>0?". Price per sq ft: $"+(price/v("sqft")).toFixed(3):"")+".";
-    var f=document.getElementById("flag");
-    if(price<breakeven){f.className="warn";f.textContent="Below break-even: this quote loses money.";}
-    else if(m<margin/2){f.className="warn";f.textContent="Thin margin: under half of your target margin.";}
-    else{f.className="";f.textContent="";}
-  }
-  calc();
-})();
-</script>
+<p>This calculator has moved: <a href="https://megatronjeremy.github.io/house-cleaning-price-calculator/?utm_source=old_calc">House Cleaning Price Calculator</a>.</p>
 </body>
 </html>
